@@ -34,3 +34,82 @@ A grandes rasgos el proyecto se divide en:
   - Aplicación de algoritmo manual
   - Aplicación de algoritmo de Scikit-Learn
   - Comparación gráfica de resultados.
+ 
+## Creación de clase SVM
+Código en el *notebook* **Algoritmo SVM.ipynb** con líneas de código explicadas en detalle.
+
+### Definición de Constructor
+
+Se definen las variables relevantes para el algoritmo:
+- *learning rate*: Parámetro que define el tamaño de las correcciones de los pesos en entrenamiento.
+- *lambda param*: Parámetro que define la importancia relativa entre minimizar los pesos y reducir el número de instancias mal clasificadas y penalizadas.
+- *n_iters*: Número de iteraciones para el entrenamiento.
+- *w*: Pesos del modelo, que definen el hiperplano para realizar la clasificación.
+- *b*: Constante del modelo que define donde el hiperplano cruza el origen.
+
+### Definición de método Fit
+
+Función para ajustar los pesos del modelo, que definen el hiperplano para separar los datos y realizar la clasificación.
+Se usa el método del gradiente descendiente para el ajuste de pesos.
+
+- Se buscan los pesos *w* tal que se cumpla:
+
+$$f(x_i) =
+    \begin{cases}
+    w\cdot x_i + b \ge 0 & si \space y_i = +1 & \\
+    w\cdot x_i + b < 0 & si \space y_i = -1
+    \end{cases}$$
+    
+
+- Lo que se puede resumir en la ecuación:
+
+$$  y_i \cdot h(x_i) = y_i(w\cdot x_i+b) \ge 1$$
+
+- Donde
+
+$$\space h(x_i) = w\cdot x_i + b$$
+
+- Se quiere minimizar los pesos para reducir la distancia entre los *vectores de soporte*, lo que se describe como:
+
+$$ l(w)= \lambda\|w\|^2 $$
+
+
+- A la vez, se debe penalizar a las predicciones equivocadas:
+
+$$l_i =
+    \begin{cases}
+    0 & si \space y_i \cdot h(x_i) \ge 1 & \\
+    1 - y_i \cdot f(x_i) & si \, no
+    \end{cases}$$
+
+- Juntando ambas condiciones, se busca minimizar la función de costo:
+
+$$J_i =
+    \begin{cases}
+    \lambda \|w\|^2 & si \space y_i \cdot h(x_i) \ge 1 & \\
+    \lambda \|w\|^2 + 1-y_i(w\cdot x_i - b) & si \, no
+    \end{cases}$$
+    
+- Calculando la derivada parcial con respecto a los pesos (para usar el algoritmo de gradiente descendiente) se tiene:
+
+$$\frac{\partial J_i}{\partial w_k} =
+    \begin{cases}
+    2 \lambda w_k & si \space y_i \cdot h(x_i) \ge 1 & \\
+    2 \lambda w_k -y_i\cdot x_{ik} & si \, no
+    \end{cases}$$
+
+### Definición de método Predict
+
+Función para predecir clase del dato de entrada.
+
+- Para obtener la predicción del modelo sobre una instancia $x_i$ basta calcular:
+
+$$h(x_i) = w\cdot x_i + b$$
+
+- Y la predicción del modelo es:
+
+$$y_i =
+    \begin{cases}
+    1 & si \space h(x_i) \ge 0 & \\
+    0 & si \space h(x_i) < 0
+    \end{cases}$$
