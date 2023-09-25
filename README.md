@@ -52,6 +52,9 @@ Se definen las variables relevantes para el algoritmo:
 Función para ajustar los pesos del modelo, que definen el hiperplano para separar los datos y realizar la clasificación.
 Se usa el método del gradiente descendiente para el ajuste de pesos.
 
+
+<p align="center"><img src="images/svm_margin.png" width=400px></img></p>
+
 - Se buscan los pesos *w* tal que se cumpla:
 
 $$f(x_i) =
