@@ -8,7 +8,29 @@
 # Support Vector Machines
 
 - SVM es un algoritmo supervisado de *machine learning* usado generalmente para problemas de clasificación.
-- Este algoritmo encuentra el hiperplano que mejor separa los datos en dos clases.
-- Al tomar los componentes de los datos proyectados en las direcciones con mayor variabilidad, se logra mantener gran cantidad de la información que diferencia los datos y a la vez reducir el número de componentes por datos (reducción de dimensionalidad).
-- Debido a que se enfoca en mantener los datos diferenciados, permite mantener la estructura global de los datos al reducir el número de dimensiones.
-- Al usar PCA se tiene la libertad de elegir cuantas direcciones principales utilizar, entre más direcciones se usan, más información se captura de los datos, pero a la vez aumenta el número de dimensiones.
+- Este algoritmo funciona encontrando el hiperplano que mejor separa los datos en dos clases, separando el espacio de los datos en dos.
+- En su versión original el hiperplano define una separación lineal de los datos, pero se puede usar el truco del Kernel para encontrar separaciones no lineales de los datos.
+- Originalmente se utiliza para problemas de clasificación binario, pero se puede usar para problemas multiclase, separándolo en una serie de problemas binarios (con métodos *One vs One* o *One vs All* por ejemplo).
+
+<p align="center"><img src="images/svm_esquema.png"></img></p>
+  
+> En este proyecto se implementa el algoritmo lineal, usando el método del gradiente descendiente para calcular el hiperplano óptimo y se usa para clasificación binaria entre dos clases.
+
+# Detalles del Proyecto
+
+A grandes rasgos el proyecto se divide en:
+
+- Creación de clase SVM
+  - Definición de constructor
+  - Definición de método *fit*
+  - Definición de método *transform*
+- Implementación en *dataset* de cúmulos
+  - Creación de *dataset* de prueba
+  - Aplicación de algoritmo manual
+  - Aplicación de algoritmo de Scikit-Learn
+  - Comparación gráfica de resultados.
+- Implementación en *dataset Iris*
+  - Importacion de datos
+  - Aplicación de algoritmo manual
+  - Aplicación de algoritmo de Scikit-Learn
+  - Comparación gráfica de resultados.
