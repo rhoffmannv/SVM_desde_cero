@@ -79,7 +79,7 @@ $$ l(w)= \lambda\|w\|^2 $$
 $$l_i =
     \begin{cases}
     0 & si \space y_i \cdot h(x_i) \ge 1 & \\
-    1 - y_i \cdot f(x_i) & si \, no
+    1 - y_i \cdot f(x_i) & si \space no
     \end{cases}$$
 
 - Juntando ambas condiciones, se busca minimizar la función de costo:
@@ -87,7 +87,7 @@ $$l_i =
 $$J_i =
     \begin{cases}
     \lambda \|w\|^2 & si \space y_i \cdot h(x_i) \ge 1 & \\
-    \lambda \|w\|^2 + 1-y_i(w\cdot x_i - b) & si \, no
+    \lambda \|w\|^2 + 1-y_i(w\cdot x_i - b) & si \space no
     \end{cases}$$
     
 - Calculando la derivada parcial con respecto a los pesos (para usar el algoritmo de gradiente descendiente) se tiene:
@@ -95,7 +95,7 @@ $$J_i =
 $$\frac{\partial J_i}{\partial w_k} =
     \begin{cases}
     2 \lambda w_k & si \space y_i \cdot h(x_i) \ge 1 & \\
-    2 \lambda w_k -y_i\cdot x_{ik} & si \, no
+    2 \lambda w_k -y_i\cdot x_{ik} & si \space no
     \end{cases}$$
 
 ### Definición de método Predict
