@@ -116,3 +116,72 @@ $$y_i =
     1 & si \space h(x_i) \ge 0 & \\
     0 & si \space h(x_i) < 0
     \end{cases}$$
+    
+## Implementación en *dataset* de cúmulos
+
+### Creación de *dataset* de prueba
+
+- Se crean datos de prueba compuesto por dos cúmulos de puntos.
+    - Se crean 500 puntos en total.
+    - Cada punto está compuesto por dos componentes.
+    - Se tiene dos clases, una por cada cúmulo.
+- Se normalizan los datos.
+- Se separan en conjunto de entrenamiento y de prueba.
+
+<p align="center"><img src="images/dataset_prueba.svg" width=550px></img></p>
+
+### Aplicación de algoritmo manual
+- Importación de Jupyter Notebook con clase SVM usando `%run "Algoritmo SVM.ipynb"`
+- Se crea instancia de la clase SVM implementada.
+- Se ajustan los pesos del hiperplano con el conjunto de entrenamiento.
+- Se realizan predicciones sobre conjunto de prueba.
+- Se obtiene un *accuracy* de 100%, puesto que los datos son linealmente divisibles.
+
+### Aplicación de algoritmo de Scikit-Learn
+
+- Se crea instancia de la clase LinearSVC `LinearSVC(C=1, loss="hinge")`
+- Se ajustan los pesos del hiperplano con el conjunto de entrenamiento.
+- Se realizan predicciones sobre conjunto de prueba.
+- Se obtiene un *accuracy* de 100%.
+
+### Comparación gráfica de resultados
+- Se grafica la intersección del hiperplano para la clasificación.
+- Se grafican los *vectores de soporte*.
+- Se grafican los *datapoints*, coloreandolos según su etiqueta real.
+- En la primera imágen se muestran el resultado con la implementación manual y en la segunda imágen el resultado con el algoritmo de Scikit-Learn.
+- Se puede ver que ambas clasificaciones son casi idénticas y ambos algoritmos encontraron un hiperplano óptimo similar.
+<p align="center"><img src="images/blobs_desde_cero.svg" width=450px><img src="images/blobs_sk.svg" width=450px></img></p>
+
+
+## Implementación en *dataset Iris*
+
+Para probar el algoritmo en datos reales, se importa el *dataset Iris* y se agrupan dos de las tres clases para hacer una clasificación bonaria usando el algoritmo SVM Lineal.
+
+### Importación dataset Iris
+
+- Se importa el *dataset Iris* desde Scikit-Learn.
+- Se extraen dos *features* para facilitar la visualización: el ancho y el largo de pétalo.
+- Se agrupan las especies *Iris virginica* y *Iris versicolor* en una misma etiqueta para hacer clasificación binaria, diferenciándolas de *Iris setosa*.
+- Se normalizan los datos.
+- Se separa el *dataset* en conjunto de entrenamiento y de prueba.
+
+<p align="center"><img src="images/dataset_prueba.svg" width=550px></img></p>
+
+### Aplicación de algoritmo manual
+- Importación de Jupyter Notebook con clase SVM y see crea instancia de la clase SVM implementada.
+- Se ajustan los pesos del hiperplano con el conjunto de entrenamiento.
+- Se realizan predicciones sobre conjunto de prueba.
+- Se obtiene un *accuracy* de 100%, ya que los datos son linealmente divisibles.
+
+### Aplicación de algoritmo de Scikit-Learn
+- Se crea instancia de la clase LinearSVC.
+- Se ajustan los pesos del hiperplano con el conjunto de entrenamiento.
+- Se realizan predicciones sobre conjunto de prueba.
+- Se obtiene un *accuracy* de 100%.
+
+### Comparación gráfica de resultados
+- Se grafica la intersección del hiperplano para la clasificación, los *vectores de soporte* y los *datapoints*, coloreandolos según su etiqueta real.
+- En la primera imágen se muestran el resultado con la implementación manual y en la segunda imágen el resultado con el algoritmo de Scikit-Learn.
+- Se puede ver que ambas clasificaciones son casi idénticas y ambos algoritmos encontraron un hiperplano óptimo similar.
+<p align="center"><img src="images/iris_desde_cero.svg" width=450px><img src="images/iris_sk.svg" width=450px></img></p>
+
