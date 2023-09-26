@@ -182,6 +182,7 @@ Para probar el algoritmo en datos reales, se importa el *dataset Iris* y se agru
 ### Comparación gráfica de resultados
 - Se grafica la intersección del hiperplano para la clasificación, los *vectores de soporte* y los *datapoints*, coloreandolos según su etiqueta real.
 - En la primera imágen se muestran el resultado con la implementación manual y en la segunda imágen el resultado con el algoritmo de Scikit-Learn.
-- Se puede ver que ambas clasificaciones son casi idénticas y ambos algoritmos encontraron un hiperplano óptimo similar.
+- Se puede ver que los hiperplanos encontrados por ambos algoritmos son similares y separan correctamente los datos de prueba en las dos clases definidas.
+- Se concluye que la implementación desde cero del algoritmo SVM Lineal funciona correctamente.
 <p align="center"><img src="images/iris_desde_cero.svg" width=450px><img src="images/iris_sk.svg" width=450px></img></p>
 
