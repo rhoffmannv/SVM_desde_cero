@@ -165,7 +165,7 @@ Para probar el algoritmo en datos reales, se importa el *dataset Iris* y se agru
 - Se normalizan los datos.
 - Se separa el *dataset* en conjunto de entrenamiento y de prueba.
 
-<p align="center"><img src="images/dataset_prueba.svg" width=550px></img></p>
+<p align="center"><img src="images/dataset_iris.svg" width=550px></img></p>
 
 ### Aplicación de algoritmo manual
 - Importación de Jupyter Notebook con clase SVM y see crea instancia de la clase SVM implementada.
